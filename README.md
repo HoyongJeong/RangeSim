@@ -1,5 +1,5 @@
 # RangeSim
-GEANT4 Range simulator
+GEANT4 range simulator
 
 ## Installation
 ```
@@ -17,9 +17,9 @@ Edit config.cfg. Then,
 
 ## Scripts
 ### TrackVis.C
-Track visualization. Following is an example.
+Track visualization. Following is an example of the script output.
 ![track_vis_ex](./scripts/trackVisExample.gif)
 
 ### DrawHist.C
-Histogram drawing. Following is an example.
+Histogram drawing. Following is an example of the script output.
 ![hist_draw_ex](./scripts/histExample.png "DrawHist.C Example result")
