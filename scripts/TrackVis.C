@@ -14,7 +14,7 @@
 #include "TGraph2D.h"
 #include "TCanvas.h"
 
-void TrackVis(const Int_t nTracks = 100, const Bool_t anim = kFALSE, const Bool_t makeGIF = kFALSE)
+void TrackVis(const Int_t nTracks = 100, const Double_t range = 40., const Bool_t anim = kFALSE, const Bool_t makeGIF = kFALSE)
 {
 	// Load data
 	TString fileName = "Scint-250-2019-03-29_17-01-25";
@@ -75,12 +75,9 @@ void TrackVis(const Int_t nTracks = 100, const Bool_t anim = kFALSE, const Bool_
 	// Prepare canvas
 	TCanvas* cTracks = new TCanvas("cTracks", "Tracks", 900, 900);
 	TGraph2D* gFrame = new TGraph2D();
-	Double_t xRange = 20.;
-	Double_t yRange = 20.;
-	Double_t zRange = 40.;
 	gFrame -> SetTitle("Track Visualization");
-	gFrame -> SetPoint(0, - xRange, - yRange, 0.    );
-	gFrame -> SetPoint(1,   xRange,   yRange, zRange);
+	gFrame -> SetPoint(0, - range / 2., - range / 2., 0.   );
+	gFrame -> SetPoint(1,   range / 2.,   range / 2., range);
 	gFrame -> Draw("P");
 
 	// Style
