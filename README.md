@@ -18,8 +18,8 @@ Edit config.cfg. Then,
 ## Scripts
 ### TrackVis.C
 Track visualization. Following is an example.
-![track_vis_ex](./scripts/trackVisExample.gif){: width="100%" height="100%"}
+![track_vis_ex](./scripts/trackVisExample.gif)
 
 ### DrawHist.C
-Histogram drawing
-![hist_draw_ex](./scripts/histExample.png "DrawHist.C Example result"){: width="100%" height="100%"}
+Histogram drawing. Following is an example.
+![hist_draw_ex](./scripts/histExample.png "DrawHist.C Example result")
