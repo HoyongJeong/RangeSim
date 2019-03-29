@@ -18,6 +18,6 @@ Edit config.cfg. Then,
 ## Scripts
 ### TrackVis.C
 Track visualization
-![track_vis_ex](./scripts/trackVisExample.gif, "Example of TrackVis.C result")
+![track_vis_ex](./scripts/trackVisExample.gif)
 ### DrawHist.C
 Histogram drawing
