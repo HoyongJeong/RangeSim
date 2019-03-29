@@ -22,4 +22,4 @@ Track visualization
 
 ### DrawHist.C
 Histogram drawing
-![hist_draw_ex](./scripts/histExamplepng "DrawHist.C Example result")
+![hist_draw_ex](./scripts/histExample.png "DrawHist.C Example result")
