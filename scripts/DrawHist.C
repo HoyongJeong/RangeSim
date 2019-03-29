@@ -2,6 +2,9 @@
 //   < DrawHist.C >                                                           //
 //                                                                            //
 //   Histogram drawing script.                                                //
+//   - Argument explanation                                                   //
+//     i)  range: Used to determine range histogram's x axis. Unit is cm.     //
+//     ii) beamE: Used to determine eDep histogram;s x axis. Unit is MeV.     //
 //                                                                            //
 //                        2019. 3. 26. Hoyong Jeong (hyjeong@hep.korea.ac.kr) //
 ////////////////////////////////////////////////////////////////////////////////
@@ -13,8 +16,11 @@
 #include "TH1D.h"
 #include "TCanvas.h"
 
-void DrawHist(Double_t cut = 0.)
+void DrawHist(const Double_t range = 40., const Double_t beamE = 250.)
 {
+	// Cut
+	const Double_t cut = beamE * 0.99; // 99 percent. You can change it.
+
 	// Load data
 	TString fileName = "Scint-250-2019-03-29_17-01-25";
 	std::cout << "\033[1;33m[Notice] " << fileName.Data();
@@ -27,6 +33,7 @@ void DrawHist(Double_t cut = 0.)
 		std::cerr << "Check file name is right.\033[0m" << std::endl;
 		return;
 	}
+	Int_t nEvents = data -> GetEntries();
 
 	// Link addresses
 	Int_t eventID = 0;
@@ -35,7 +42,7 @@ void DrawHist(Double_t cut = 0.)
 	Double_t posXFinal = 0.;
 	Double_t posYFinal = 0.;
 	Double_t posZFinal = 0.;
-	Double_t timeFinal;
+	Double_t timeFinal = 0.;
 	vector<Double_t>* eKinHistory = 0;
 	vector<Double_t>* posXHistory = 0;
 	vector<Double_t>* posYHistory = 0;
@@ -55,15 +62,14 @@ void DrawHist(Double_t cut = 0.)
 	data -> SetBranchAddress("timeHistory", &timeHistory);
 
 	// Define histograms
-	TH1D* hEDep   = new TH1D("hEDep"  , "Energy Deposition", 1000, 0, 300);
-	TH1D* hRange  = new TH1D("hRange" , "Range"            , 1000, 0,  40);
-	TH1D* hRangeP = new TH1D("hRangeP", "Projected Range"  , 1000, 0,  40);
+	TH1D* hEDep   = new TH1D("hEDep"  , "Energy Deposition", nEvents / 1000, 0, beamE*1.1);
+	TH1D* hRange  = new TH1D("hRange" , "Range"            , nEvents / 1000, 0,     range);
+	TH1D* hRangeP = new TH1D("hRangeP", "Projected Range"  , nEvents / 1000, 0,     range);
 	hEDep   -> SetFillColor(kGreen);
 	hRange  -> SetFillColor(kYellow);
 	hRangeP -> SetFillColor(kOrange);
 
 	// Looping over entries
-	Int_t nEvents = data -> GetEntries();
 	std::cout << "\033[1;33m[Notice] " << nEvents;
 	std::cout << " events are going to be processed.\033[0m" << std::endl;
 	for ( Int_t i = 0; i < nEvents; i++ )
@@ -72,7 +78,7 @@ void DrawHist(Double_t cut = 0.)
 		data -> GetEntry(i);
 
 		// Fill hists
-		hEDep   -> Fill(eDepTotal);
+		hEDep -> Fill(eDepTotal);
 		if ( eDepTotal > cut ) // EDep cut
 		{
 			hRange  -> Fill(pathTotal);
