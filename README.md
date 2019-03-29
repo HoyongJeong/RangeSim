@@ -10,8 +10,7 @@ make
 ```
 
 ## Run
-Edit config.cfg
-Then
+Edit config.cfg. Then,
 ```
 ./rangesim
 ```
