@@ -79,7 +79,7 @@ void RSSteAct::UserSteppingAction(const G4Step* step)
 		if ( trackID == 1 ) // Primary
 		{
 			// Update final state
-			m_EA -> AddPath(length / cm);
+			m_EA -> AddPath(length / mm);
 			m_EA -> SetPosXFinal(prePos.getX() / mm);
 			m_EA -> SetPosYFinal(prePos.getY() / mm);
 			m_EA -> SetPosZFinal(prePos.getZ() / mm);

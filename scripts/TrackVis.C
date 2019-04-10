@@ -14,7 +14,7 @@
 #include "TGraph2D.h"
 #include "TCanvas.h"
 
-void TrackVis(const Int_t nTracks = 100, const Double_t range = 40., const Bool_t anim = kFALSE, const Bool_t makeGIF = kFALSE)
+void TrackVis(const Int_t nTracks = 100, const Double_t range = 400., const Bool_t anim = kFALSE, const Bool_t makeGIF = kFALSE)
 {
 	// Load data
 	TString fileName = "Scint-250-2019-03-29_17-01-25";
@@ -81,9 +81,9 @@ void TrackVis(const Int_t nTracks = 100, const Double_t range = 40., const Bool_
 	gFrame -> Draw("P");
 
 	// Style
-	gFrame -> GetXaxis() -> SetTitle("x (cm)");
-	gFrame -> GetYaxis() -> SetTitle("y (cm)");
-	gFrame -> GetZaxis() -> SetTitle("z (cm)");
+	gFrame -> GetXaxis() -> SetTitle("x (mm)");
+	gFrame -> GetYaxis() -> SetTitle("y (mm)");
+	gFrame -> GetZaxis() -> SetTitle("z (mm)");
 	gFrame -> GetXaxis() -> SetTitleOffset(1.5);
 	gFrame -> GetYaxis() -> SetTitleOffset(1.5);
 	gFrame -> GetZaxis() -> SetTitleOffset(1.5);
