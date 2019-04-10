@@ -15,7 +15,12 @@ make
 ```
 
 ## Run
-Edit config.cfg. Then,
+* Check help message first.
+```
+./rangesim -h
+```
+
+* Edit config.cfg. Then,
 ```
 ./rangesim
 ```
