@@ -91,7 +91,12 @@ void TrackVis(const Int_t nTracks = 100, const Double_t range = 400., const Bool
 	// Draw tracks
 	for ( Int_t i = 0; i < nTracks; i++ )
 	{
-		if ( anim && makeGIF && gROOT -> IsBatch() ) cTracks -> Print("trackVis.gif+1");
+		if ( anim && makeGIF && gROOT -> IsBatch() )
+		{
+			cTracks -> Print("trackVis.gif+1");
+			std::cout << "\033[1;33m[Notice] ";
+			std::cout << i+1 << "/" << nTracks << " gif processing...\033[0m" << std::endl;
+		}
 
 		gTrack[i] -> Draw("PLINESAME");
 		if ( anim ) cTracks -> Modified();
@@ -99,7 +104,12 @@ void TrackVis(const Int_t nTracks = 100, const Double_t range = 400., const Bool
 
 	}
 
-	if ( anim && makeGIF && gROOT -> IsBatch() ) cTracks -> Print("trackVis.gif++");
+	if ( anim && makeGIF && gROOT -> IsBatch() )
+	{
+		cTracks -> Print("trackVis.gif++");
+		std::cout << "\033[1;33m[Notice] ";
+		std::cout << "gif processing finished.\033[0m" << std::endl;
+	}
 
 	// Delete
 //	delete gFrame;
