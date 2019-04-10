@@ -1,7 +1,12 @@
 # RangeSim
-GEANT4 range simulator
+GEANT4 range simulator. The simulation builds a simple lump of material choosed by user. Then shoot beam directly to the target material. Length of primary particle's traveling will be recorded.
 
 ## Installation
+* Download it.
+```
+ git clone [url of this repository]
+```
+* Build it.
 ```
 mkdir build
 cd build
