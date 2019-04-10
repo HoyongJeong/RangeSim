@@ -3,7 +3,7 @@
 //                                                                            //
 //   This is main function of the simulation program.                         //
 //                                                                            //
-//                    - 20. Oct. 2017. Hoyong Jeong (hyjeong@hep.korea.ac.kr) //
+//                    - 26. Mar. 2019. Hoyong Jeong (hyjeong@hep.korea.ac.kr) //
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <unistd.h>
@@ -14,7 +14,7 @@
 #include "RSConMan.hh"
 
 #include "G4MTRunManager.hh"
-#include "G4RunManager.hh"
+//#include "G4RunManager.hh"
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
 #include "G4UImanager.hh"
@@ -22,7 +22,6 @@
 #include "G4UIExecutive.hh"
 #include "G4String.hh"
 #include "Randomize.hh"
-
 #include "QGSP_BERT.hh"
 
 // Declaration of PrintHelp()
