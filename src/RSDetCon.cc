@@ -106,6 +106,15 @@ void RSDetCon::ConstructMaterials()
 		m_TarMat -> AddElement(m_ElC, 0.915);
 		m_TarMat -> AddElement(m_ElH, 0.085);
 	}
+	else if ( targetMaterial == "LYSO" )
+	{
+		m_TarMat = new G4Material("LYSO", 7.1*g/cm3, 5, kStateSolid, labTemp);
+		m_TarMat -> AddElement(m_ElLu, 71.43/100.0);
+		m_TarMat -> AddElement(m_ElY,   4.03/100.0);
+		m_TarMat -> AddElement(m_ElSi,  6.37/100.0);
+		m_TarMat -> AddElement(m_ElO,  18.14/100.0);
+		m_TarMat -> AddElement(m_ElCe,  0.02/100.0);
+	}
 	else if ( targetMaterial == "C" )
 	{
 		m_TarMat = new G4Material("Graphite", 1.7*g/cm3, 3, kStateSolid, labTemp);
