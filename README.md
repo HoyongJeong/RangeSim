@@ -28,4 +28,5 @@ Histogram drawing. Following is an example of the script output.
 * Linker prints error with some versions.
    * 4.10.03-p03
    * 4.10.04-p01
+
 It seems HepRandom library cannot be found. Please use the latest version of GEANT4.
