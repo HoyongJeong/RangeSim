@@ -76,20 +76,20 @@ void RSSteAct::UserSteppingAction(const G4Step* step)
 	if ( namePrePV.contains("TarPV") )
 	{
 			m_EA -> AddEDep(eDep / MeV);
-		if ( trackID == 1 )
+		if ( trackID == 1 ) // Primary
 		{
-			// Final state
+			// Update final state
 			m_EA -> AddPath(length / cm);
-			m_EA -> SetPosXFinal(prePos.getX() / cm);
-			m_EA -> SetPosYFinal(prePos.getY() / cm);
-			m_EA -> SetPosZFinal(prePos.getZ() / cm);
+			m_EA -> SetPosXFinal(prePos.getX() / mm);
+			m_EA -> SetPosYFinal(prePos.getY() / mm);
+			m_EA -> SetPosZFinal(prePos.getZ() / mm);
 			m_EA -> SetTimeFinal(time          / ns);
 
-			// History
+			// Add history
 			m_EA -> AddEKinHistory(preKinEgy    / MeV);
-			m_EA -> AddPosXHistory(prePos.getX() / cm);
-			m_EA -> AddPosYHistory(prePos.getY() / cm);
-			m_EA -> AddPosZHistory(prePos.getZ() / cm);
+			m_EA -> AddPosXHistory(prePos.getX() / mm);
+			m_EA -> AddPosYHistory(prePos.getY() / mm);
+			m_EA -> AddPosZHistory(prePos.getZ() / mm);
 			m_EA -> AddTimeHistory(time          / ns);
 		}
 	}
